@@ -8,94 +8,87 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
+<!-- AOS ANIMATION -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <style>
-body {
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:#f5f7fa;
-}
+body {margin:0;font-family:'Poppins',sans-serif;background:#f5f7fa;}
 
 /* HERO */
 .hero {
-    height:90vh;
-    background:linear-gradient(135deg,#1e3c72,#2a5298);
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-}
-
-.hero h1 {
-    font-size:40px;
-    margin:0;
-}
-
-.hero p {
-    opacity:0.8;
+height:90vh;
+background:linear-gradient(135deg,#1e3c72,#2a5298);
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
 /* NAV */
 nav {
-    position:sticky;
-    top:0;
-    background:white;
-    padding:10px;
-    text-align:center;
-    box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-nav a {
-    margin:0 15px;
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
+position:sticky;
+top:0;
+background:white;
+padding:10px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 /* SECTION */
-.section {
-    padding:60px 20px;
-    max-width:1000px;
-    margin:auto;
-}
+.section {padding:60px 20px;max-width:1000px;margin:auto;}
 
-/* CARD GRID */
 .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
+/* CARD */
 .card {
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover {
-    transform:translateY(-8px);
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
 /* GALERI */
 .gallery img {
-    width:100%;
-    border-radius:10px;
-    transition:0.3s;
+width:100%;
+border-radius:10px;
+cursor:pointer;
 }
 
-.gallery img:hover {
-    transform:scale(1.05);
+/* MODAL */
+.modal {
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
 }
 
-/* FOOTER */
-footer {
-    background:#1e3c72;
-    color:white;
-    text-align:center;
-    padding:20px;
+.modal img {
+max-width:90%;
+border-radius:10px;
+}
+
+/* SILSILAH */
+.tree {
+text-align:center;
+}
+
+.tree div {
+margin:10px;
+padding:10px;
+background:#2a5298;
+color:white;
+border-radius:10px;
+display:inline-block;
 }
 </style>
 </head>
@@ -103,47 +96,50 @@ footer {
 <body>
 
 <div class="hero">
-    <h1>👨‍👩‍👧‍👦 BaniMukmin</h1>
-    <p>Kisah & Kenangan Keluarga</p>
+<h1>BaniMukmin</h1>
+<p>Keluarga & Kenangan</p>
 </div>
 
 <nav>
-    <a href="#tentang">Tentang</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#blog">Cerita</a>
+<a href="#galeri">Galeri</a>
+<a href="#silsilah">Silsilah</a>
 </nav>
 
-<div class="section" id="tentang">
-    <h2>Tentang</h2>
-    <p>Keluarga Bani Mukmin yang penuh kebersamaan dan cinta.</p>
-</div>
-
 <div class="section" id="galeri">
-    <h2>Galeri</h2>
-    <div class="grid gallery">
-        <img src="https://via.placeholder.com/400">
-        <img src="https://via.placeholder.com/400">
-        <img src="https://via.placeholder.com/400">
-    </div>
+<h2 data-aos="fade-up">Galeri</h2>
+<div class="grid gallery">
+<img src="https://via.placeholder.com/400" onclick="openImg(this)">
+<img src="https://via.placeholder.com/400" onclick="openImg(this)">
+<img src="https://via.placeholder.com/400" onclick="openImg(this)">
+</div>
 </div>
 
-<div class="section" id="blog">
-    <h2>Cerita Keluarga</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Lebaran</h3>
-            <p>Momen penuh kebahagiaan bersama keluarga.</p>
-        </div>
-        <div class="card">
-            <h3>Liburan</h3>
-            <p>Kenangan indah bersama keluarga.</p>
-        </div>
-    </div>
+<div class="section" id="silsilah">
+<h2 data-aos="fade-up">Silsilah</h2>
+<div class="tree" data-aos="zoom-in">
+<div>Kakek</div><br>
+<div>Ayah</div><br>
+<div>Anak</div>
+</div>
 </div>
 
-<footer>
-    <p>© 2026 BaniMukmin</p>
-</footer>
+<div class="modal" id="modal" onclick="closeImg()">
+<img id="modalImg">
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+
+function openImg(img){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src=img.src;
+}
+
+function closeImg(){
+document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
 </html>
