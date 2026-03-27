@@ -3,101 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BaniMukmin</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background: #f4f6f8;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #eef2f3, #dfe9f3);
 }
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
-    padding: 30px;
+    padding: 40px 20px;
     text-align: center;
     animation: fadeDown 1s ease;
 }
 
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
 /* NAV */
 nav {
-    background: #34495e;
+    backdrop-filter: blur(10px);
+    background: rgba(44, 62, 80, 0.8);
     padding: 12px;
     text-align: center;
+    position: sticky;
+    top: 0;
 }
+
 nav a {
     color: white;
-    margin: 0 12px;
+    margin: 0 15px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     transition: 0.3s;
 }
+
 nav a:hover {
     color: #ffd369;
 }
 
-/* SECTION */
-section {
-    padding: 25px;
-}
-
 /* CARD */
 .card {
-    background: white;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 12px;
-    max-width: 800px;
-    transition: 0.3s;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    margin: 25px auto;
+    border-radius: 16px;
+    max-width: 850px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
+    transition: 0.6s ease;
 }
+
 .card.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* HOVER CARD */
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-6px);
 }
 
 /* GALERI */
-.gallery img {
-    width: 30%;
-    margin: 5px;
-    border-radius: 10px;
-    transition: 0.3s;
+.gallery {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
+
+.gallery img {
+    width: 32%;
+    border-radius: 12px;
+    transition: 0.4s;
+}
+
 .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
 }
 
 /* FOOTER */
 footer {
-    background: #2c3e50;
+    background: #1e3c72;
     color: white;
     text-align: center;
-    padding: 12px;
+    padding: 15px;
 }
 
 /* ANIMASI */
 @keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from {opacity:0; transform:translateY(-20px);}
+    to {opacity:1; transform:translateY(0);}
 }
 </style>
 </head>
@@ -105,7 +112,7 @@ footer {
 <body>
 
 <header>
-    <h1>👨‍👩‍👧‍👦 BaniMukmin</h1>
+    <h1>✨ BaniMukmin</h1>
     <p>Kisah, Kenangan, dan Keluarga ❤️</p>
 </header>
 
@@ -119,15 +126,15 @@ footer {
 
 <section id="home">
     <div class="card">
-        <h2>Selamat Datang ✨</h2>
-        <p>Selamat datang di website keluarga besar Bani Mukmin.</p>
+        <h2>Selamat Datang 👋</h2>
+        <p>Website keluarga Bani Mukmin yang penuh kenangan dan kebersamaan.</p>
     </div>
 </section>
 
 <section id="tentang">
     <div class="card">
         <h2>Tentang Keluarga</h2>
-        <p>Keluarga yang menjunjung tinggi kebersamaan dan kasih sayang.</p>
+        <p>Keluarga yang menjunjung tinggi cinta, kebersamaan, dan silaturahmi.</p>
     </div>
 </section>
 
@@ -145,7 +152,7 @@ footer {
 <section id="blog">
     <div class="card">
         <h2>Cerita ✍️</h2>
-        <p><b>Lebaran</b> - Momen bahagia bersama.</p>
+        <p><b>Lebaran</b> - Momen bahagia bersama keluarga.</p>
     </div>
 </section>
 
@@ -161,7 +168,6 @@ footer {
 </footer>
 
 <script>
-// animasi muncul saat scroll
 const cards = document.querySelectorAll('.card');
 
 window.addEventListener('scroll', () => {
