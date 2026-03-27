@@ -9,177 +9,141 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-html { scroll-behavior: smooth; }
-
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #eef2f3, #dfe9f3);
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fa;
 }
 
-/* HEADER */
-header {
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    animation: fadeDown 1s ease;
+/* HERO */
+.hero {
+    height:90vh;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
+.hero h1 {
+    font-size:40px;
+    margin:0;
+}
+
+.hero p {
+    opacity:0.8;
 }
 
 /* NAV */
 nav {
-    backdrop-filter: blur(10px);
-    background: rgba(44, 62, 80, 0.8);
-    padding: 12px;
-    text-align: center;
-    position: sticky;
-    top: 0;
+    position:sticky;
+    top:0;
+    background:white;
+    padding:10px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
 nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+    margin:0 15px;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
 }
 
-nav a:hover {
-    color: #ffd369;
+/* SECTION */
+.section {
+    padding:60px 20px;
+    max-width:1000px;
+    margin:auto;
 }
 
-/* CARD */
+/* CARD GRID */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
 .card {
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(12px);
-    padding: 25px;
-    margin: 25px auto;
-    border-radius: 16px;
-    max-width: 850px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.6s ease;
-}
-
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
 .card:hover {
-    transform: translateY(-6px);
+    transform:translateY(-8px);
 }
 
 /* GALERI */
-.gallery {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
 .gallery img {
-    width: 32%;
-    border-radius: 12px;
-    transition: 0.4s;
+    width:100%;
+    border-radius:10px;
+    transition:0.3s;
 }
 
 .gallery img:hover {
-    transform: scale(1.07);
+    transform:scale(1.05);
 }
 
 /* FOOTER */
 footer {
-    background: #1e3c72;
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-/* ANIMASI */
-@keyframes fadeDown {
-    from {opacity:0; transform:translateY(-20px);}
-    to {opacity:1; transform:translateY(0);}
+    background:#1e3c72;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>✨ BaniMukmin</h1>
-    <p>Kisah, Kenangan, dan Keluarga ❤️</p>
-</header>
+<div class="hero">
+    <h1>👨‍👩‍👧‍👦 BaniMukmin</h1>
+    <p>Kisah & Kenangan Keluarga</p>
+</div>
 
 <nav>
-    <a href="#home">Home</a>
     <a href="#tentang">Tentang</a>
     <a href="#galeri">Galeri</a>
-    <a href="#blog">Blog</a>
-    <a href="#silsilah">Silsilah</a>
+    <a href="#blog">Cerita</a>
 </nav>
 
-<section id="home">
-    <div class="card">
-        <h2>Selamat Datang 👋</h2>
-        <p>Website keluarga Bani Mukmin yang penuh kenangan dan kebersamaan.</p>
-    </div>
-</section>
+<div class="section" id="tentang">
+    <h2>Tentang</h2>
+    <p>Keluarga Bani Mukmin yang penuh kebersamaan dan cinta.</p>
+</div>
 
-<section id="tentang">
-    <div class="card">
-        <h2>Tentang Keluarga</h2>
-        <p>Keluarga yang menjunjung tinggi cinta, kebersamaan, dan silaturahmi.</p>
+<div class="section" id="galeri">
+    <h2>Galeri</h2>
+    <div class="grid gallery">
+        <img src="https://via.placeholder.com/400">
+        <img src="https://via.placeholder.com/400">
+        <img src="https://via.placeholder.com/400">
     </div>
-</section>
+</div>
 
-<section id="galeri">
-    <div class="card">
-        <h2>Galeri 📸</h2>
-        <div class="gallery">
-            <img src="https://via.placeholder.com/300">
-            <img src="https://via.placeholder.com/300">
-            <img src="https://via.placeholder.com/300">
+<div class="section" id="blog">
+    <h2>Cerita Keluarga</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Lebaran</h3>
+            <p>Momen penuh kebahagiaan bersama keluarga.</p>
+        </div>
+        <div class="card">
+            <h3>Liburan</h3>
+            <p>Kenangan indah bersama keluarga.</p>
         </div>
     </div>
-</section>
-
-<section id="blog">
-    <div class="card">
-        <h2>Cerita ✍️</h2>
-        <p><b>Lebaran</b> - Momen bahagia bersama keluarga.</p>
-    </div>
-</section>
-
-<section id="silsilah">
-    <div class="card">
-        <h2>Silsilah 🌳</h2>
-        <p>Kakek → Ayah → Anak</p>
-    </div>
-</section>
+</div>
 
 <footer>
     <p>© 2026 BaniMukmin</p>
 </footer>
-
-<script>
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-    const trigger = window.innerHeight * 0.85;
-    cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
-        if(top < trigger){
-            card.classList.add('show');
-        }
-    });
-});
-</script>
 
 </body>
 </html>
