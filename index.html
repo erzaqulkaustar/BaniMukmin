@@ -6,17 +6,26 @@
 <title>BaniMukmin</title>
 
 <style>
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     background: #f4f6f8;
 }
+
+/* HEADER */
 header {
-    background: #2c3e50;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
     color: white;
-    padding: 25px;
+    padding: 30px;
     text-align: center;
+    animation: fadeDown 1s ease;
 }
+
+/* NAV */
 nav {
     background: #34495e;
     padding: 12px;
@@ -27,27 +36,68 @@ nav a {
     margin: 0 12px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
+nav a:hover {
+    color: #ffd369;
+}
+
+/* SECTION */
 section {
     padding: 25px;
 }
+
+/* CARD */
 .card {
     background: white;
     padding: 20px;
-    margin: 15px auto;
+    margin: 20px auto;
     border-radius: 12px;
     max-width: 800px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
 }
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HOVER CARD */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* GALERI */
 .gallery img {
     width: 30%;
     margin: 5px;
     border-radius: 10px;
+    transition: 0.3s;
 }
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
 footer {
     background: #2c3e50;
     color: white;
     text-align: center;
     padding: 12px;
+}
+
+/* ANIMASI */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
 </head>
@@ -70,20 +120,20 @@ footer {
 <section id="home">
     <div class="card">
         <h2>Selamat Datang ✨</h2>
-        <p>Selamat datang di website keluarga besar Bani Mukmin. Tempat berbagi cerita, kebahagiaan, dan kenangan indah bersama.</p>
+        <p>Selamat datang di website keluarga besar Bani Mukmin.</p>
     </div>
 </section>
 
 <section id="tentang">
     <div class="card">
         <h2>Tentang Keluarga</h2>
-        <p>Keluarga Bani Mukmin adalah keluarga yang menjunjung tinggi kebersamaan, kasih sayang, dan silaturahmi.</p>
+        <p>Keluarga yang menjunjung tinggi kebersamaan dan kasih sayang.</p>
     </div>
 </section>
 
 <section id="galeri">
     <div class="card">
-        <h2>Galeri Foto 📸</h2>
+        <h2>Galeri 📸</h2>
         <div class="gallery">
             <img src="https://via.placeholder.com/300">
             <img src="https://via.placeholder.com/300">
@@ -94,23 +144,36 @@ footer {
 
 <section id="blog">
     <div class="card">
-        <h2>Cerita Keluarga ✍️</h2>
-        <p><b>Lebaran 2025</b> - Momen penuh kebahagiaan bersama keluarga besar.</p>
-        <p><b>Liburan Bersama</b> - Kenangan indah jalan-jalan bersama.</p>
+        <h2>Cerita ✍️</h2>
+        <p><b>Lebaran</b> - Momen bahagia bersama.</p>
     </div>
 </section>
 
 <section id="silsilah">
     <div class="card">
-        <h2>Silsilah Keluarga 🌳</h2>
+        <h2>Silsilah 🌳</h2>
         <p>Kakek → Ayah → Anak</p>
-        <p>(Nanti bisa kamu update sesuai keluarga)</p>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 BaniMukmin - Dibuat dengan ❤️</p>
+    <p>© 2026 BaniMukmin</p>
 </footer>
+
+<script>
+// animasi muncul saat scroll
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+    const trigger = window.innerHeight * 0.85;
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < trigger){
+            card.classList.add('show');
+        }
+    });
+});
+</script>
 
 </body>
 </html>
