@@ -103,6 +103,8 @@ display:inline-block;
 <nav>
 <a href="#galeri">Galeri</a>
 <a href="#silsilah">Silsilah</a>
+  <button onclick="loginGoogle()">Login Google</button>
+<p id="user"></p>
 </nav>
 
 <div class="section" id="galeri">
@@ -140,6 +142,33 @@ function closeImg(){
 document.getElementById("modal").style.display="none";
 }
 </script>
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBoqqVyqZgr96F28SxzDatnBZQNG9-9iaQ",
+  authDomain: "banimukmin-7a9c2.firebaseapp.com",
+  projectId: "banimukmin-7a9c2",
+  storageBucket: "banimukmin-7a9c2.firebasestorage.app",
+  messagingSenderId: "77421077646",
+  appId: "1:77421077646:web:dad40a22b4e12677f915df"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+function loginGoogle(){
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider);
+}
+
+firebase.auth().onAuthStateChanged(user => {
+  if(user){
+    document.getElementById("user").innerHTML =
+      "Halo, " + user.displayName;
+  }
+});
+</script>
 </body>
 </html>
