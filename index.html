@@ -170,5 +170,21 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 </script>
+<!-- STORAGE -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js"></script>
+
+<input type="file" id="file">
+<button onclick="upload()">Upload Foto</button>
+
+<script>
+function upload(){
+  const file = document.getElementById("file").files[0];
+  const storageRef = firebase.storage().ref("foto/" + file.name);
+
+  storageRef.put(file).then(() => {
+    alert("Upload berhasil!");
+  });
+}
+</script>
 </body>
 </html>
